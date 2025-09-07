@@ -174,7 +174,7 @@
                       <span class="block sm:inline">Your order has been sent. We'll be in touch shortly to confirm.</span>
                     </div>
 
-                    <form id="order-form">
+                    <form id="order-form" action="https://formspree.io/f/mqadwqkb" method="POST">
                         <div class="grid md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
@@ -348,46 +348,56 @@
         });
 
         orderForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission (page reload)
+            event.preventDefault(); // Prevent default page reload
             
-            // Show the confirmation message
-            confirmationMessage.classList.remove('hidden');
-            
-            // --- Custom Form Reset Logic ---
-            // Reset simple text/email/tel inputs
-            orderForm.querySelector('#name').value = '';
-            orderForm.querySelector('#email').value = '';
-            orderForm.querySelector('#phone').value = '';
-            orderForm.querySelector('#message').value = '';
+            const form = event.target;
+            const data = new FormData(form);
+            const action = form.action;
 
-            // Reset payment dropdown
-            orderForm.querySelector('#payment').selectedIndex = 0;
+            fetch(action, {
+                method: 'POST',
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Show the confirmation message on success
+                    confirmationMessage.classList.remove('hidden');
+                    
+                    // --- Custom Form Reset Logic ---
+                    form.querySelector('#name').value = '';
+                    form.querySelector('#email').value = '';
+                    form.querySelector('#phone').value = '';
+                    form.querySelector('#message').value = '';
+                    form.querySelector('#payment').selectedIndex = 0;
+                    const allItems = orderItemsContainer.querySelectorAll('.order-item');
+                    for (let i = 1; i < allItems.length; i++) {
+                        allItems[i].remove();
+                    }
+                    if (allItems.length > 0) {
+                        const firstItem = allItems[0];
+                        firstItem.querySelector('select[name="product"]').selectedIndex = 0;
+                        firstItem.querySelector('select[name="quantity"]').selectedIndex = 0;
+                    }
+                    // --- End Custom Reset ---
 
-            // Get all order items
-            const allItems = orderItemsContainer.querySelectorAll('.order-item');
-
-            // Remove all but the first item
-            for (let i = 1; i < allItems.length; i++) {
-                allItems[i].remove();
-            }
-
-            // Reset the fields of the first item
-            if (allItems.length > 0) {
-                const firstItem = allItems[0];
-                firstItem.querySelector('select[name="product"]').selectedIndex = 0;
-                firstItem.querySelector('select[name="quantity"]').selectedIndex = 0;
-            }
-            // --- End Custom Reset ---
-
-            // Optional: scroll to the confirmation message
-            confirmationMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            // Hide the confirmation message after a few seconds
-            setTimeout(() => {
-                confirmationMessage.classList.add('hidden');
-            }, 6000);
+                    confirmationMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    setTimeout(() => {
+                        confirmationMessage.classList.add('hidden');
+                    }, 6000);
+                } else {
+                    // Handle server errors
+                    alert('Oops! There was a problem submitting your form. Please try again.');
+                }
+            }).catch(error => {
+                // Handle network errors
+                alert('Oops! There was a network error. Please check your connection and try again.');
+            });
         });
     </script>
 </body>
 </html>
+
 
