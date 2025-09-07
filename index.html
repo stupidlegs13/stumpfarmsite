@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Stump Farm - Farm-Fresh Chicken & Turkey</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='%2378350f' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M75 95C75 92.2386 72.7614 90 70 90H30C27.2386 90 25 92.2386 25 95V98H75V95Z'/%3E%3Cpath d='M80 85C80 82.2386 77.7614 80 75 80H25C22.2386 80 20 82.2386 20 85V88H80V85Z'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M20 78C20 75.2386 22.2386 73 25 73H75C77.7614 73 80 75.2386 80 78V79H20V78Z'/%3E%3Cpath d='M62.3333 58.7408C60.4281 59.582 58.3371 60 56.1667 60C45.5786 60 37 51.1391 37 40.1852C37 36.3484 38.169 32.812 40.1667 29.8148C40.6625 29.0275 41.5975 28.913 42.2612 29.5019C44.596 31.5721 49.3333 34.5 49.3333 34.5C49.3333 34.5 47.9157 32.3113 47.0163 30.6852C46.5293 29.7821 47.0504 28.6946 48.0435 28.4111L49.9575 27.8869C50.9506 27.6034 52.0122 28.1691 52.3333 29.1852C53.5 33 52.3333 37.8148 52.3333 37.8148C52.3333 37.8148 57.25 31.8148 58.5833 29.8148C58.8528 29.4147 59.2901 29.1852 59.75 29.1852C60.2099 29.1852 60.6472 29.4147 60.9167 29.8148L62.3333 31.8148C62.8333 32.5148 62.5 33.5 61.75 33.8148C61.1667 34.037 60.5 34.8148 60.5 34.8148C60.5 34.8148 63.8333 39.8148 63.8333 44.1852C63.8333 49.1852 60.1667 52.8148 56.1667 52.8148C55.428 52.8148 54.7145 52.709 54.0432 52.5133C55.5132 54.4932 56.5 56.4025 56.5 58.1852C56.5 58.7303 56.4011 59.2592 56.2222 59.7613C57.4815 62.062 60.1667 66.8148 60.1667 66.8148C60.1667 66.8148 64.6667 63.8148 66.1667 60.8148C66.5623 59.9723 67.491 59.5447 68.4167 59.8148L70.4167 60.4773C71.3423 60.7474 71.9167 61.608 71.9167 62.5148C71.9167 66.5148 69.1667 68.8148 69.1667 68.8148C69.1667 68.8148 67.1667 67.1481 65.5 65.4773C63.8333 63.8065 62.3333 58.7408 62.3333 58.7408Z'/%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FBF9F4; /* Creamy background */
+        }
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .card {
+            @apply bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 ease-in-out hover:shadow-2xl hover:transform hover:-translate-y-2;
+        }
+        .messenger-fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0084FF; /* Facebook Messenger Blue */
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        .messenger-fab:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <!-- SVG Logo: Chicken on a stump -->
+                <svg class="h-12 w-12 text-amber-900" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M75 95C75 92.2386 72.7614 90 70 90H30C27.2386 90 25 92.2386 25 95V98H75V95Z" />
+                    <path d="M80 85C80 82.2386 77.7614 80 75 80H25C22.2386 80 20 82.2386 20 85V88H80V85Z" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20 78C20 75.2386 22.2386 73 25 73H75C77.7614 73 80 75.2386 80 78V79H20V78Z" />
+                    <path d="M62.3333 58.7408C60.4281 59.582 58.3371 60 56.1667 60C45.5786 60 37 51.1391 37 40.1852C37 36.3484 38.169 32.812 40.1667 29.8148C40.6625 29.0275 41.5975 28.913 42.2612 29.5019C44.596 31.5721 49.3333 34.5 49.3333 34.5C49.3333 34.5 47.9157 32.3113 47.0163 30.6852C46.5293 29.7821 47.0504 28.6946 48.0435 28.4111L49.9575 27.8869C50.9506 27.6034 52.0122 28.1691 52.3333 29.1852C53.5 33 52.3333 37.8148 52.3333 37.8148C52.3333 37.8148 57.25 31.8148 58.5833 29.8148C58.8528 29.4147 59.2901 29.1852 59.75 29.1852C60.2099 29.1852 60.6472 29.4147 60.9167 29.8148L62.3333 31.8148C62.8333 32.5148 62.5 33.5 61.75 33.8148C61.1667 34.037 60.5 34.8148 60.5 34.8148C60.5 34.8148 63.8333 39.8148 63.8333 44.1852C63.8333 49.1852 60.1667 52.8148 56.1667 52.8148C55.428 52.8148 54.7145 52.709 54.0432 52.5133C55.5132 54.4932 56.5 56.4025 56.5 58.1852C56.5 58.7303 56.4011 59.2592 56.2222 59.7613C57.4815 62.062 60.1667 66.8148 60.1667 66.8148C60.1667 66.8148 64.6667 63.8148 66.1667 60.8148C66.5623 59.9723 67.491 59.5447 68.4167 59.8148L70.4167 60.4773C71.3423 60.7474 71.9167 61.608 71.9167 62.5148C71.9167 66.5148 69.1667 68.8148 69.1667 68.8148C69.1667 68.8148 67.1667 67.1481 65.5 65.4773C63.8333 63.8065 62.3333 58.7408 62.3333 58.7408Z" />
+                </svg>
+                <span class="font-display text-2xl font-bold text-amber-900">The Stump Farm</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-amber-800 transition">About Us</a>
+                <a href="#products" class="text-gray-600 hover:text-amber-800 transition">Our Products</a>
+                <a href="https://www.facebook.com/thestumpfarms" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition" aria-label="Facebook">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0h-21.35C.582 0 0 .582 0 1.35v21.35c0 .768.582 1.35 1.325 1.35h11.494V15.75h-3.83v-4.5h3.83V7.93c0-3.795 2.24-5.88 5.703-5.88 1.63 0 3.03.12 3.438.175v4.02h-2.37c-1.84 0-2.195.875-2.195 2.155v2.81h4.44l-.578 4.5h-3.86v8.4h6.08c.742 0 1.325-.582 1.325-1.35V1.35C24 .582 23.418 0 22.675 0z"/></svg>
+                </a>
+                <a href="#order" class="bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-110 hover:brightness-110 border-b-4 border-red-900 active:scale-100 active:brightness-100">Order Now</a>
+            </div>
+             <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-amber-900">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+             <a href="#about" class="block text-gray-600 hover:text-amber-800 transition">About Us</a>
+             <a href="#products" class="block text-gray-600 hover:text-amber-800 transition">Our Products</a>
+             <a href="https://www.facebook.com/thestumpfarms" target="_blank" rel="noopener noreferrer" class="block text-gray-600 hover:text-amber-800 transition">Facebook Page</a>
+             <a href="#order" class="block mt-2 bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-110 hover:brightness-110 border-b-4 border-red-900 active:scale-100 active:brightness-100 text-center">Order Now</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Image Background -->
+        <section class="relative flex items-center justify-center h-screen bg-cover bg-center text-white" style="background-image: url('https://i.ibb.co/ch03XhvQ/farm1pic.jpg');">
+            <!-- Black Overlay -->
+            <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
+            <!-- Content -->
+            <div class="relative z-10 container mx-auto px-6 text-center">
+                <h1 class="font-display text-5xl md:text-7xl font-bold mb-4">From Our Farm to Your Table</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">Experience the unbeatable taste and quality of pasture-raised chicken and turkey, grown with care right here in Fulton, New York.</p>
+                <a href="#order" class="bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-110 hover:brightness-110 border-b-4 border-red-900 active:scale-100 active:brightness-100 text-xl">Place Your Order</a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img src="https://i.ibb.co/WN9q9N9B/birds2.png" alt="Pasture-raised chickens at The Stump Farm" class="rounded-xl shadow-2xl w-full h-full object-cover">
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h2 class="font-display text-4xl text-amber-900 font-bold mb-4">Welcome to The Stump Farm</h2>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Nestled in the heart of upstate New York, The Stump Farm is a family-run venture born from a passion for sustainable agriculture and wholesome food. We believe that the best meat comes from animals raised ethically, with plenty of space to roam and forage naturally.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Our chickens and turkeys are raised on lush pastures, enjoying a life full of sunshine and fresh air. This not only ensures their well-being but also results in meat that is more flavorful, tender, and nutritious. We're proud to offer our community a direct connection to their food source.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-4xl text-amber-900 font-bold mb-2">Our Farm-Raised Poultry</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-12">All our poultry is raised without antibiotics or added hormones. Prices are based on final weight.</p>
+                <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                    <!-- Chicken Card -->
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?q=80&w=2070&auto=format&fit=crop" alt="A fresh, raw, whole pasture-raised chicken" class="w-full h-64 object-cover">
+                        <div class="p-8">
+                            <h3 class="font-display text-3xl text-green-800 font-bold mb-3">Pasture-Raised Chicken</h3>
+                            <p class="text-gray-600 mb-4">Our whole chickens are tender, juicy, and perfect for roasting. Raised on pasture, their diet results in an incredibly rich flavor.</p>
+                            <p class="text-2xl font-bold text-amber-900">$5.50 / lb</p>
+                        </div>
+                    </div>
+                    <!-- Turkey Card -->
+                    <div class="card">
+                        <img src="https://i.ibb.co/XGSycB3/turkeyimage.png" alt="A large, raw, farm-fresh turkey ready for seasoning" class="w-full h-64 object-cover">
+                        <div class="p-8">
+                            <h3 class="font-display text-3xl text-green-800 font-bold mb-3">Pasture-Raised Turkey</h3>
+                            <p class="text-gray-600 mb-4">Perfect for holidays or a special family dinner. Our turkeys are broad-breasted and full of flavor, a true centerpiece for any meal.</p>
+                            <p class="text-2xl font-bold text-amber-900">$5.50 / lb</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How to Order Section -->
+        <section class="py-20 bg-green-800/5">
+            <div class="container mx-auto px-6 text-center">
+                 <h2 class="font-display text-4xl text-amber-900 font-bold mb-12">Simple In-Person Sales</h2>
+                 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-gray-700">
+                     <div class="flex flex-col items-center">
+                        <div class="bg-amber-800 text-white rounded-full w-16 h-16 flex items-center justify-center font-display text-3xl font-bold mb-4">1</div>
+                        <h3 class="text-xl font-semibold mb-2">Submit Your Order</h3>
+                        <p>Fill out the contact form below with what you'd like to order. We'll get back to you within 24 hours.</p>
+                     </div>
+                     <div class="flex flex-col items-center">
+                        <div class="bg-amber-800 text-white rounded-full w-16 h-16 flex items-center justify-center font-display text-3xl font-bold mb-4">2</div>
+                        <h3 class="text-xl font-semibold mb-2">We'll Confirm</h3>
+                        <p>We'll confirm your order total, availability, and schedule a convenient time for you to pick it up.</p>
+                     </div>
+                     <div class="flex flex-col items-center">
+                        <div class="bg-amber-800 text-white rounded-full w-16 h-16 flex items-center justify-center font-display text-3xl font-bold mb-4">3</div>
+                        <h3 class="text-xl font-semibold mb-2">Pick Up at the Farm</h3>
+                        <p>Visit us at the arranged time to pick up your fresh poultry. We accept cash, Venmo, and local checks.</p>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Order Form Section -->
+        <section id="order" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-2xl">
+                    <h2 class="font-display text-4xl text-amber-900 font-bold text-center mb-2">Contact Us to Order</h2>
+                    <p class="text-center text-gray-600 mb-8">Let us know what you need! We'll contact you to confirm the details.</p>
+                    
+                    <div id="confirmation-message" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative mb-6" role="alert">
+                      <strong class="font-bold">Thank you!</strong>
+                      <span class="block sm:inline">Your order has been sent. We'll be in touch shortly to confirm.</span>
+                    </div>
+
+                    <form id="order-form">
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-800" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-800" required>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-800">
+                        </div>
+
+                        <!-- Dynamic Order Items -->
+                        <div id="order-items-container" class="space-y-4 mb-4">
+                            <div class="order-item p-4 border rounded-lg bg-gray-50/50">
+                                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                                    <div class="md:col-span-7">
+                                        <label class="block text-gray-700 font-semibold mb-2 text-sm">Product</label>
+                                        <select name="product" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-800 bg-white" required>
+                                            <option value="" disabled selected>Select a product...</option>
+                                            <optgroup label="Chicken">
+                                                <option value="chicken-whole">Whole Chicken - $5.50/lb</option>
+                                                <option value="chicken-half">Half Chicken (Spatchcock) - $6.00/lb</option>
+                                                <option value="chicken-stock">Stock Pack (Spine/Neck) - $4.00/lb</option>
+                                            </optgroup>
+                                            <optgroup label="Turkey - $5.50/lb">
+                                                <option value="turkey-half-large">Half Turkey - Large (11-14 lbs)</option>
+                                                <option value="turkey-small">Small Turkey (8-10 lbs)</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <div class="md:col-span-3">
+                                        <label class="block text-gray-700 font-semibold mb-2 text-sm">Quantity</label>
+                                        <select name="quantity" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-800 bg-white" required>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10+</option>
+                                        </select>
+                                    </div>
+                                    <div class="md:col-span-2 flex justify-end">
+                                        <button type="button" class="remove-item-button hidden text-red-600 hover:text-red-800 font-semibold transition text-sm py-2">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                             <button type="button" id="add-item-button" class="w-full flex items-center justify-center px-4 py-2 border-2 border-dashed border-green-800 text-green-800 rounded-lg hover:bg-green-50 transition">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                Add Another Item
+                            </button>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="payment" class="block text-gray-700 font-semibold mb-2">Preferred Payment Method</label>
+                            <select id="payment" name="payment" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-800 bg-white" required>
+                                <option value="" disabled selected>Select an option...</option>
+                                <option value="cash">Cash</option>
+                                <option value="venmo">Venmo</option>
+                                <option value="check">Local Check</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-semibold mb-2">Your Order & Questions (Optional)</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-800" placeholder="e.g., 'Please add two stock packs to my order. What are your pickup hours this Saturday?'"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-110 hover:brightness-110 border-b-4 border-red-900 active:scale-100 active:brightness-100 text-lg">Send Inquiry</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <a href="#" class="flex items-center justify-center space-x-3 mb-4">
+                <svg class="h-10 w-10 text-white" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M75 95C75 92.2386 72.7614 90 70 90H30C27.2386 90 25 92.2386 25 95V98H75V95Z" />
+                    <path d="M80 85C80 82.2386 77.7614 80 75 80H25C22.2386 80 20 82.2386 20 85V88H80V85Z" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20 78C20 75.2386 22.2386 73 25 73H75C77.7614 73 80 75.2386 80 78V79H20V78Z" />
+                    <path d="M62.3333 58.7408C60.4281 59.582 58.3371 60 56.1667 60C45.5786 60 37 51.1391 37 40.1852C37 36.3484 38.169 32.812 40.1667 29.8148C40.6625 29.0275 41.5975 28.913 42.2612 29.5019C44.596 31.5721 49.3333 34.5 49.3333 34.5C49.3333 34.5 47.9157 32.3113 47.0163 30.6852C46.5293 29.7821 47.0504 28.6946 48.0435 28.4111L49.9575 27.8869C50.9506 27.6034 52.0122 28.1691 52.3333 29.1852C53.5 33 52.3333 37.8148 52.3333 37.8148C52.3333 37.8148 57.25 31.8148 58.5833 29.8148C58.8528 29.4147 59.2901 29.1852 59.75 29.1852C60.2099 29.1852 60.6472 29.4147 60.9167 29.8148L62.3333 31.8148C62.8333 32.5148 62.5 33.5 61.75 33.8148C61.1667 34.037 60.5 34.8148 60.5 34.8148C60.5 34.8148 63.8333 39.8148 63.8333 44.1852C63.8333 49.1852 60.1667 52.8148 56.1667 52.8148C55.428 52.8148 54.7145 52.709 54.0432 52.5133C55.5132 54.4932 56.5 56.4025 56.5 58.1852C56.5 58.7303 56.4011 59.2592 56.2222 59.7613C57.4815 62.062 60.1667 66.8148 60.1667 66.8148C60.1667 66.8148 64.6667 63.8148 66.1667 60.8148C66.5623 59.9723 67.491 59.5447 68.4167 59.8148L70.4167 60.4773C71.3423 60.7474 71.9167 61.608 71.9167 62.5148C71.9167 66.5148 69.1667 68.8148 69.1667 68.8148C69.1667 68.8148 67.1667 67.1481 65.5 65.4773C63.8333 63.8065 62.3333 58.7408 62.3333 58.7408Z" />
+                </svg>
+                <span class="font-display text-2xl font-bold">The Stump Farm</span>
+            </a>
+            <p class="mb-4">Fulton, New York</p>
+            <p class="mb-6">
+                <a href="mailto:orders@thestumpfarm.com" class="hover:text-amber-400 transition">orders@thestumpfarm.com</a> | 
+                <a href="tel:315-591-8237" class="hover:text-amber-400 transition">(315) 591-8237</a>
+            </p>
+            <div class="flex justify-center mb-8">
+                 <a href="https://www.facebook.com/thestumpfarms" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition" aria-label="Facebook">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0h-21.35C.582 0 0 .582 0 1.35v21.35c0 .768.582 1.35 1.325 1.35h11.494V15.75h-3.83v-4.5h3.83V7.93c0-3.795 2.24-5.88 5.703-5.88 1.63 0 3.03.12 3.438.175v4.02h-2.37c-1.84 0-2.195.875-2.195 2.155v2.81h4.44l-.578 4.5h-3.86v8.4h6.08c.742 0 1.325-.582 1.325-1.35V1.35C24 .582 23.418 0 22.675 0z"/></svg>
+                </a>
+            </div>
+            <p class="text-gray-400 text-sm">&copy; <span id="year"></span> The Stump Farm. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Facebook Messenger Chat Button -->
+    <a href="https://m.me/thestumpfarms" target="_blank" rel="noopener noreferrer" class="messenger-fab" aria-label="Chat on Messenger">
+        <!-- Messenger Icon SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8">
+            <path fill="white" d="M12 0C5.373 0 0 4.975 0 11.11c0 3.12 1.413 5.9 3.69 7.823v4.067l3.64-1.83c1.51.64 3.16.99 4.87.99 6.627 0 12-4.974 12-11.11C24 4.975 18.627 0 12 0zm1.19 14.85l-2.9-2.73-3.66 1.83c-.22.11-.49-.05-.49-.29V11.4l4.6-4.52c.22-.21.57-.02.48.24l-1.3 4.85 2.55 2.39c.2.19.06.54-.23.59z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Order form submission handler
+        const orderForm = document.getElementById('order-form');
+        const confirmationMessage = document.getElementById('confirmation-message');
+        const orderItemsContainer = document.getElementById('order-items-container');
+        const addItemButton = document.getElementById('add-item-button');
+
+        // Function to add a new item
+        addItemButton.addEventListener('click', () => {
+            const firstItem = orderItemsContainer.querySelector('.order-item');
+            const newItem = firstItem.cloneNode(true);
+            
+            // Reset fields in the new item
+            newItem.querySelector('select[name="product"]').selectedIndex = 0;
+            newItem.querySelector('select[name="quantity"]').selectedIndex = 0;
+            
+            // Show the remove button
+            const removeButton = newItem.querySelector('.remove-item-button');
+            if (removeButton) {
+                removeButton.classList.remove('hidden');
+            }
+            
+            orderItemsContainer.appendChild(newItem);
+        });
+
+        // Function to remove an item (using event delegation)
+        orderItemsContainer.addEventListener('click', (event) => {
+            if (event.target.classList.contains('remove-item-button')) {
+                // Ensure we don't remove the very last item
+                if (orderItemsContainer.querySelectorAll('.order-item').length > 1) {
+                    event.target.closest('.order-item').remove();
+                }
+            }
+        });
+
+        orderForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission (page reload)
+            
+            // Show the confirmation message
+            confirmationMessage.classList.remove('hidden');
+            
+            // --- Custom Form Reset Logic ---
+            // Reset simple text/email/tel inputs
+            orderForm.querySelector('#name').value = '';
+            orderForm.querySelector('#email').value = '';
+            orderForm.querySelector('#phone').value = '';
+            orderForm.querySelector('#message').value = '';
+
+            // Reset payment dropdown
+            orderForm.querySelector('#payment').selectedIndex = 0;
+
+            // Get all order items
+            const allItems = orderItemsContainer.querySelectorAll('.order-item');
+
+            // Remove all but the first item
+            for (let i = 1; i < allItems.length; i++) {
+                allItems[i].remove();
+            }
+
+            // Reset the fields of the first item
+            if (allItems.length > 0) {
+                const firstItem = allItems[0];
+                firstItem.querySelector('select[name="product"]').selectedIndex = 0;
+                firstItem.querySelector('select[name="quantity"]').selectedIndex = 0;
+            }
+            // --- End Custom Reset ---
+
+            // Optional: scroll to the confirmation message
+            confirmationMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Hide the confirmation message after a few seconds
+            setTimeout(() => {
+                confirmationMessage.classList.add('hidden');
+            }, 6000);
+        });
+    </script>
+</body>
+</html>
+
